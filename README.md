@@ -12,46 +12,39 @@ A yeoman generator for `C++` projects using Meson.
 
 ## Introduction
 
-`c-bones` is a `yeoman` generator for C++-projects that use Meson as build tool. c-bones` creates a project that uses
+`c-bones` is a `yeoman` generator for C++-projects that use Meson as build tool. `c-bones` creates a project that uses
 
-* a GPL3 license,
-* static code analysis and reports using `pmd` and `checkstyle` ,
-* a unit-test suite using `JUnit` and logging using `log4j/slf4j`,
-* badges for the *project status*, *build status* using Travis CI and *code coverage* using Jacoco,
-* custom README.md, TODO.md and VERSIONS.md files and
-* a prototype `Main.c` + `TestSuite.c`.
+* a prototype `meson.build` file that uses `Boost` as dependency,
+* a custom `valgrindrc` and an oppinioated `clang-format`
+* badges for the *project status*, *build status* using Travis CI and *code coverage*,
+* a prototype `main.cpp` and test suite file,
+* custom README.md, TODO.md and VERSIONS.md files,
+* standard software development config and GitHib files like `travis.yml`, `codecov.yml`, `gitignore` and `gitattributes`,
+* a GPL3 license.
 
 The resulting folder-structure looks like this:
 
 ```sh
-	|____.codecov.yml
-	|____.gitattributes
-	|____.gitignore
-	|____.travis.yml
-	|____.yo-rc.json
-	|____build.sh
-	|____checkstyle.xml
-	|____emptyproject4j
-	|____LICENSE
-	|____pom.xml
-	|____README.md
-	|____ruleset.xml
-	|____src
-	| |____main
-	| | |____c
-	| | | |____net
-	| | | | |____groupID
-	| | | | | |____emptyproject4j
-	| | | | | | |____Main.c
-	| |____test
-	| | |____c
-	| | | |____net
-	| | | | |____groupID
-	| | | | | |____tests
-	| | | | | | |____emptyproject4j
-	| | | | | | | |____TestSuite.c
-	|____TODO.md
-	|____VERSIONS.md
+	.
+    |____.clang-format
+    |____.codecov.yml
+    |____.gitattributes
+    |____.gitignore
+    |____.travis.yml
+    |____.valgrindrc
+    |____.yo-rc.json
+    |____LICENSE
+    |____README.md
+    |____VERSIONS.md
+    |____TODO.md
+    |____meson.build
+    |____src
+    | |____clazz.hpp
+    | |____clazz.cpp
+    | |____main.cpp
+    |____tests
+    | |____test_clazz.cpp
+    | |____test.cpp
 ```
 
 ## Installation
@@ -69,14 +62,8 @@ Once you have the package, you can create a scaffold using:
   yo c-bones
 ```
 
-This builds the skeleton. Afterwards modify the sources and build the package with:
-
-```sh
-  ./${artifactID}
-```
-
-where `${artifactID}` will be the name of your package.
+This builds the skeleton. Afterwards modify the sources and build your project.
 
 ## Author
 
-* Simon Dirmeier <a href="mailto:mail@simon-dirmeier.net">mail@simon-dirmeier.net</a>
+* Simon Dirmeier <a href="mailto:simon.dirmeier@web.de">simon.dirmeier@web.de</a>
